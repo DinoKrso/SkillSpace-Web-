@@ -34,9 +34,11 @@ class ProjectDao{
      /*
     Metod used to add students to database
     */
-    public function add($first_name, $last_name){
-        $stmt = $this->conn->prepare("INSERT INTO Users (first_name , last_name) VALUES ('$first_name', '$last_name')");
-        $result = $stmt->execute() ; 
+    public function add($student){
+        $stmt = $this->conn->prepare("INSERT INTO Students (first_name , last_name) VALUES (:first_name, :last_name)");
+        $stmt->execute($student) ;
+        $student['idStudents'] = $this->conn->lastInsertId();
+        return $student ;
         
      
     }
@@ -44,14 +46,15 @@ class ProjectDao{
       /*
     Metod used to update students from database
     */
-    public function update($first_name, $last_name,$id){
-        $stmt = $this->conn->prepare("UPDATE Users SET first_name= '$first_name',last_name ='$last_name' WHERE idUsers = $id");
-        $stmt->execute() ;
-        
+    public function update($request,$id){
+        $request['id'] = $id ;
+        $stmt = $this->conn->prepare("UPDATE Students SET first_name= :first_name,last_name =:last_name WHERE idUsers = :id");
+        $stmt->execute($request) ;
+        return $request ;
      
     }
         /*
-    Metod used to update students from database
+    Metod used to delete students from database
     */
     public function delete($id){
         $stmt = $this->conn->prepare("DELETE FROM Users WHERE idUsers =:id" ) ;
@@ -59,6 +62,12 @@ class ProjectDao{
         $stmt->execute() ; 
         
      
+    }
+    public function get_by_id($id){
+        $stmt= $this->conn->prepare("SELECT * FROM Students WHERE idUsers=:id") ;
+        $stmt->execute(['id' => $id]) ;
+        return $stmt->fetchAll();
+
     }
 }
 
