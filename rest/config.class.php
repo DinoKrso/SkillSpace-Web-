@@ -2,19 +2,19 @@
 
 class Config  {
     public static function DB_HOST(){
-        return Config::get_env("DB_HOST", "127.0.0.1");
+        return Config::get_env("DB_HOST", "skillspace-web-do-user-14222074-0.b.db.ondigitalocean.com");
     }
     public static function DB_USERNAME(){
-        return Config::get_env("DB_USERNAME", "root");
+        return Config::get_env("DB_USERNAME", "doadmin");
     }
     public static function DB_PASSWORD(){
-        return Config::get_env("DB_PASSWORD", "80Sarajevo");
+        return Config::get_env("DB_PASSWORD", "AVNS_fEQWzzQ9tykdzB-wkmj");
     }
     public static function DB_SCHEME(){
         return Config::get_env("DB_SCHEME", "ProjectSchema");
     }
     public static function DB_PORT(){
-        return Config::get_env("DB_PORT", "3306");
+        return Config::get_env("DB_PORT", "25060");
     }
     public static function JWT_SECRET(){
         return Config::get_env("JWT_SECRET", "ProjectSchema");
