@@ -14,6 +14,9 @@ class UserDao extends BaseDao
     {
         return $this->query_unique("SELECT * FROM Users WHERE first_name = :firstName AND last_name = :lastName", ["first_name" => $firstName, "last_name" => $lastName]);
     }
+    public function get_user_by_email($email){
+        return $this->query("SELECT * FROM Users WHERE email = :email", ['email' => $email]);
+      }
 }
 
 ?>

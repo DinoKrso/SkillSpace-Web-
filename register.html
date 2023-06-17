@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Center the form */
+  
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      color : white ;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #27292a;
+      flex: auto ;
+      margin: 0 auto;
+     
+    }
+
+    form label,
+    form input[type="submit"] {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    form input[type="email"],
+    form input[type="password"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background-color: #ccc;
+    }
+
+    form input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+   <link rel="stylesheet" href="assets/css/skillspace.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo">
+       <h2 class="title">Registration</h2>
+    </div>
+    
+    <form action="#" name="registration">
+      <label for="first_name">First Name</label>
+      <input type="text" name="first_name" id="first_name" placeholder="John">
+
+      <label for="last_name">Last Name</label>
+      <input type="text" name="last_name" id="last_name" placeholder="Doe">
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="john@doe.com">
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <!-- Imported JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+  <script src="assets/js/index.js"></script>
+  <script src="assets/js/utils.js"></script>
+
+</body>
+</html>
