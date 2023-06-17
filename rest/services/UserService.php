@@ -15,5 +15,16 @@ class UserService extends BaseService
     {
         return $this->dao->getUserByFirstNameAndLastName($firstName, $lastName);
     }
+    function add($user)
+    {
+        $user['password'] = md5($user['password']);
+        return parent::add($user);
+    }
+
+    function update($id, $user)
+    {
+        $user['password'] = md5($user['password']);
+        return parent::update($id, $user);  
+    }
 }
 ?>

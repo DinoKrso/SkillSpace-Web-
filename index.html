@@ -20,13 +20,6 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     
-<!--
-
-TemplateMo 579 Cyborg Gaming
-
-https://templatemo.com/tm-579-cyborg-gaming
-
--->
   </head>
 
 <body>
@@ -228,6 +221,7 @@ https://templatemo.com/tm-579-cyborg-gaming
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/user-service.js"></script>
 
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
@@ -250,7 +244,7 @@ https://templatemo.com/tm-579-cyborg-gaming
   //  element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>'; 
   // });
 
-  $.get(REST_URL + 'users', function(data) {
+ $.get(REST_URL + 'users', function(data) {
     console.log(data);
     var name 
     var element = document.getElementById('profileName');
@@ -266,7 +260,7 @@ https://templatemo.com/tm-579-cyborg-gaming
     // Create a function to handle the redirection
    
 });
-  
+  //  
   $.get(REST_URL+'courses', function(data) {
     console.log(data);
     var name = data[0].name; 

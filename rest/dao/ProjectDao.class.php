@@ -1,5 +1,5 @@
 <?php 
-
+//ovo visak ovo radi perfektno ako zajebem sta da mogu vratit izbrisat cu kasnije
 class ProjectDao{
         private $conn; 
         /*
