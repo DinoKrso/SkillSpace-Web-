@@ -85,7 +85,6 @@ Flight::route('POST /login', function(){
 });
 
 
-
 Flight::route('POST /api/register', function(){
   $registration = Flight::request()->data->getData();
   $user = Flight::userDao()->get_user_by_email($registration['email']);
