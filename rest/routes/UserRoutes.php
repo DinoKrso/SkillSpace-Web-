@@ -114,5 +114,4 @@ Flight::route('POST /api/register', function(){
   Flight::json(['token' => $jwt]);
 });
 
-//autentikacija main logika 
 ?>
