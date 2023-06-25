@@ -45,7 +45,7 @@ $(function() {
 
   function addUser(user){
     var jwtToken ;
-    //var jwtToken = JWT.encode(user, 'ProjectSchema', 'HS256') ; 
+    var jwtToken = JWT.encode(user, 'ProjectSchema', 'HS256') ; 
     $.ajax({
       url: "rest/api/register",
       type: "POST",
