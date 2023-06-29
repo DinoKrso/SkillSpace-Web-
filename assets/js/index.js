@@ -44,17 +44,16 @@ $(function() {
   });
 
   function addUser(user){
-    /*var jwtToken = JWT.encode(user, 'ProjectSchema', 'HS256') ; */
     $.ajax({
       url: "rest/api/register",
       type: "POST",
-     /* beforeSend: function (xhr) {
+     beforeSend: function (xhr) {
         xhr.setRequestHeader(
           "Authorization",
-          localStorage.getItem("user_token", jwtToken)   
+          localStorage.getItem("user_token")   
         );
         
-      },*/
+      },
       data: JSON.stringify(user),
       contentType: "application/json",
       success: function(data) {
