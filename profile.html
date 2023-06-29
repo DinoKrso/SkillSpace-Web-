@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+  #logoutButton {
+  color: white;
+}
+</style>
+
+
+
   <head>
 
     <meta charset="utf-8">
@@ -266,6 +274,11 @@
   document.getElementById('logoutButton').addEventListener('click', function() {
   logout();
 });
+
+function logout() {
+  localStorage.clear();
+  window.location.href = 'index.html';
+}
   </script>
 
 
