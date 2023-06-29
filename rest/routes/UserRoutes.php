@@ -2,6 +2,7 @@
 
 
 Flight::route('GET /api/users', function () {
+   $user = Flight::get('user') ;
     Flight::json(Flight::userService()->get_all());
 });
 
