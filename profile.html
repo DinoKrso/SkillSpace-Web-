@@ -96,8 +96,8 @@
                   </div>
                   <div class="col-lg-4 align-self-center">
                     <div class="main-info header-text">
-                      <span>Offline</span>
-                      <h4>Alan Smithee</h4>
+                      <span>Online</span>
+                      <h4 id = "name"></h4>
                       <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
                       <div class="main-border-button">
                         <a id="logoutButton" >Log Off</a>
@@ -253,22 +253,19 @@
 
 
   <script> 
-    $.get(REST_URL + 'users', function(data) {
-      console.log(data);
-      var name 
-      var element = document.getElementById('profileName');
-      var user = true ; 
-      if(user){
-        name = data[0].first_name;
-        element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>';
-      } else {
-         name = 'Login' ; 
-         element.innerHTML = '<a href="login.html">' + name  ;
-       }
-    
-      // Create a function to handle the redirection
-     
-  });
+   // Retrieve the JWT payload from local storage
+var token = localStorage.getItem('user_token');
+
+// Parse the JWT payload to get the first_name and last_name values
+var payload = JSON.parse(atob(token.split('.')[1]));
+
+// Get the first_name and last_name values
+var firstName = payload.first_name;
+var lastName = payload.last_name;
+
+// Set the content of the <h4> element to the first_name and last_name values
+var nameElement = document.getElementById('name');
+nameElement.textContent = firstName + ' ' + lastName;
 
   document.getElementById('logoutButton').addEventListener('click', function() {
   logout();
