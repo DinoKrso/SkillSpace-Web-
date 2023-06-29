@@ -102,6 +102,8 @@ Flight::route('POST /api/register', function(){
 
   // Create a new user record
   $newUser = [
+      'first_name' => $registration['first_name'],
+      'last_name' => $registration['last_name'],
       'email' => $registration['email'],
       'password' => md5($registration['password']),
      // 'is_admin' => false
