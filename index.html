@@ -244,22 +244,21 @@
   //  element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>'; 
   // });
 
- $.get(REST_URL + 'users', function(data) {
-    console.log(data);
-    var name 
-    var element = document.getElementById('profileName');
-    var user = false ; 
-    if(user){
-      name = data[0].first_name;
-      element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>';
-    } else {
-       name = 'Login' ; 
-       element.innerHTML = '<a href="login.html">' + name  ;
-     }
+  $.get(REST_URL + 'users', function(data) {
+  console.log(data);
+  var element = document.getElementById('profileName');
+  var userToken = localStorage.getItem('user_token');
   
-    // Create a function to handle the redirection
-   
+  if (userToken) {
+    var decodedToken = jwt_decode(userToken);
+    var name = decodedToken.first_name;
+    element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>';
+  } else {
+    var name = 'Login';
+    element.innerHTML = '<a href="login.html">' + name;
+  }
 });
+
   //  
   $.get(REST_URL+'courses', function(data) {
     console.log(data);
