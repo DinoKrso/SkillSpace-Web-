@@ -62,7 +62,7 @@
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="browse.html">Browse</a></li>
                         <li><a href="details.html">Details</a></li>
-                        <li><a id = "profileName" href = "profile.html" > <img src="assets/images/profile-header.jpg" alt=""></a></li>
+                        <li><a id = "profileName" href = "profile.html" > </a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -250,7 +250,6 @@
   var payload = JSON.parse(atob(userToken.split('.')[1]));
   if (userToken) {
     var firstName = payload.first_name;
-    console.log(name);
     element.innerHTML = '<a href="profile.html">' + firstName + ' <img src="assets/images/profile-header.jpg" alt="">';
   } else {
     var name = 'Login';
