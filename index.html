@@ -252,6 +252,7 @@
   if (userToken) {
     var decodedToken = jwt_decode(userToken);
     var name = decodedToken.first_name;
+    console.log(name);
     element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>';
   } else {
     var name = 'Login';
