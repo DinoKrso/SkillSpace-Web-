@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * @OA\Get(path="/api/users", tags={"users"}, security={{"ApiKeyAuth": {}}},
+ *         summary="Return all users from the API. ",
+ *         @OA\Response( response=200, description="List of students.")
+ * )
+ */
 
 Flight::route('GET /api/users', function () {
    $user = Flight::get('user') ;
