@@ -67,7 +67,7 @@ $(function() {
           }, 100);
       },
       error: function(jqXHR, textStatus, errorThrown ){
-        toastr.error(jqXHR.responseJSON.message);
+        toastr.error("Error");
       }
     });
    
