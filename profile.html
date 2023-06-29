@@ -98,7 +98,7 @@
                     <div class="main-info header-text">
                       <span>Online</span>
                       <h4 id = "name"></h4>
-                      <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
+                      <p id = "balance"></p>
                       <div class="main-border-button">
                         <a id="logoutButton" >Log Off</a>
                       </div>
@@ -262,10 +262,13 @@ var payload = JSON.parse(atob(token.split('.')[1]));
 // Get the first_name and last_name values
 var firstName = payload.first_name;
 var lastName = payload.last_name;
-
+var balance = payload.balance
 // Set the content of the <h4> element to the first_name and last_name values
 var nameElement = document.getElementById('name');
 nameElement.textContent = firstName + ' ' + lastName;
+
+var balanceElement = document.getElementById('balance') ;
+balanceElement.textContent = balance + '$' ;
 
   document.getElementById('logoutButton').addEventListener('click', function() {
   logout();
