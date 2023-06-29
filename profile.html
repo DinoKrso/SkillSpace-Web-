@@ -93,7 +93,7 @@
                       <h4>Alan Smithee</h4>
                       <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
                       <div class="main-border-button">
-                        <a href="#">Start Live Stream</a>
+                        <a id="logoutButton" >Log Off</a>
                       </div>
                     </div>
                   </div>
@@ -236,7 +236,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="assets/jquery/jquery.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
+  <script src="assets/js/user-service.js"></script>
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/tabs.js"></script>
@@ -262,7 +262,13 @@
       // Create a function to handle the redirection
      
   });
+
+  document.getElementById('logoutButton').addEventListener('click', function() {
+  logout();
+});
   </script>
+
+
 
   </body>
 
