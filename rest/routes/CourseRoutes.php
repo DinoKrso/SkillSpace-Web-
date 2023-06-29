@@ -8,7 +8,6 @@ Flight::route('GET /api/users/@id', function ($id) {
     Flight::json(Flight::userService()->get_by_id($id));
 });
 
-// to vam je od template samo pregledaj da znas sta je u kome sta
 Flight::route('GET /api/users/@firstName/@lastName', function ($firstName, $lastName) {
     Flight::json(Flight::userService()->getUserByFirstNameAndLastName($firstName, $lastName));
     });
