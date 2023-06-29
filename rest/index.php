@@ -25,7 +25,7 @@ require_once __DIR__ . '/routes/CourseRoutes.php';
 Flight::route('GET /', function () {
     echo "Hello";
 });
-
+/*
  // middleware method for login
 Flight::route('/*', function(){
     //perform JWT decode
@@ -47,7 +47,7 @@ Flight::route('/*', function(){
       }
     }
   });
-
+*/
   /* REST API documentation endpoint */
     Flight::route('GET /docs.json', function(){
     $openapi = \OpenApi\scan('routes');
