@@ -62,7 +62,6 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="browse.html">Browse</a></li>
                         <li><a href="details.html" class="active">Details</a></li>
-                        <li><a href="streams.html">Streams</a></li>
                         <li><a id = "profileName" href = "" > <img src="assets/images/profile-header.jpg" alt=""></a></li>
                     </ul>   
                     <a class='menu-trigger'>
@@ -175,21 +174,21 @@
 
   <script> 
     $.get(REST_URL + 'users', function(data) {
-      console.log(data);
-      var name 
-      var element = document.getElementById('profileName');
-      var user = true ; 
-      if(user){
-        name = data[0].first_name;
-        element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>';
-      } else {
-         name = 'Login' ; 
-         element.innerHTML = '<a href="login.html">' + name  ;
-       }
-    
-      // Create a function to handle the redirection
-     
-  });
+  console.log(data);
+  var element = document.getElementById('profileName');
+  var userToken = localStorage.getItem('user_token');
+  
+  if (userToken) {
+    var decodedToken = jwt_decode(userToken);
+    var name = decodedToken.first_name;
+    console.log(name);
+    element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt="">';
+  } else {
+    var name = 'Login';
+    element.innerHTML = '<a href="login.html">' + name;
+  }
+});
+
   </script>
 
 
