@@ -108,7 +108,7 @@ Flight::route('POST /api/register', function(){
   ];
 
   // Save the new user to the database
-  Flight::userDao()->save_user($newUser);
+  Flight::userDao()->add($newUser);
 
   // Generate JWT token for the registered user
   $jwt = JWT::encode($newUser, Config::JWT_SECRET(), 'HS256');
