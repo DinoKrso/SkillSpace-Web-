@@ -49,12 +49,13 @@ $(function() {
     $.ajax({
       url: "rest/api/register",
       type: "POST",
-      beforeSend: function (xhr) {
+     /* beforeSend: function (xhr) {
         xhr.setRequestHeader(
           "Authorization",
           localStorage.getItem("user_token", jwtToken)   
         );
-      },
+        
+      },*/
       data: JSON.stringify(user),
       contentType: "application/json",
       success: function(data) {
