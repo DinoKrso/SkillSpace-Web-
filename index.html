@@ -247,12 +247,11 @@
   console.log(data);
   var element = document.getElementById('profileName');
   var userToken = localStorage.getItem('user_token');
-  
+  var payload = JSON.parse(atob(userToken.split('.')[1]));
   if (userToken) {
-    var decodedToken = jwt_decode(userToken);
-    var name = decodedToken.first_name;
+    var firstName = payload.first_name;
     console.log(name);
-    element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt="">';
+    element.innerHTML = '<a href="profile.html">' + firstName + ' <img src="assets/images/profile-header.jpg" alt="">';
   } else {
     var name = 'Login';
     element.innerHTML = '<a href="login.html">' + name;
