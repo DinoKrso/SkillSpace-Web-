@@ -63,7 +63,7 @@
                         <li><a href="browse.html">Browse</a></li>
                         <li><a href="details.html">Details</a></li>
                         <li><a href="streams.html">Streams</a></li>
-                        <li><a id = "profileName" > <img src="assets/images/profile-header.jpg" alt=""></a></li>
+                        <li><a id = "profileName" ></a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -79,7 +79,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="page-content">
+        <div class="page-content">=
 
           <!-- ***** Banner Start ***** -->
           <div class="main-banner">
@@ -253,7 +253,7 @@
     var decodedToken = jwt_decode(userToken);
     var name = decodedToken.first_name;
     console.log(name);
-    element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt=""></a>';
+    element.innerHTML = '<a href="profile.html">' + name + ' <img src="assets/images/profile-header.jpg" alt="">';
   } else {
     var name = 'Login';
     element.innerHTML = '<a href="login.html">' + name;
