@@ -248,7 +248,7 @@
             </div>
           </div>
           <div class="destroy-account-button">
-            <a id="delete" href="index.html" class="red-button">Destroy Account</a>
+            <a id="delete" class="red-button">Destroy Account</a>
           </div>
           <!-- ***** Gaming Library End ***** -->
         </div>
@@ -310,11 +310,11 @@ function logout() {
 }
 document.getElementById('delete').addEventListener('click', function(){
   destroy();
-})
+});
 
 function destroy(){
   $.ajax({
-      url: "rest/students/" + payload.idUsers,
+      url: "rest/users/" + payload.idUsers,
       beforeSend: function (xhr) {
         xhr.setRequestHeader(
           "Authorization",
