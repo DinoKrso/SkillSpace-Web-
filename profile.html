@@ -295,7 +295,7 @@ document.getElementById("addButton").addEventListener("click", function() {
 
   // Make an AJAX request to the PHP backend
   $.ajax({
-  url: "rest/update-balance",
+  url: "rest/api/update-balance",
   type: "POST",
   data: JSON.stringify({ userId: userId, balance: balance }),
   contentType: "application/json",
