@@ -41,9 +41,24 @@ Flight::route('DELETE /api/users/@id', function ($id) {
     Flight::json(['message' => "User deleted successfully"]) ;
 });
 
-Flight::route('POST /api/updateBalance/@user_id/@amount', function ($user_id, $amount) {
-  $data = Flight::request()->data->getData();
-  Flight::json(Flight::userService()->updateBalance($user_id, $amount));
+require 'flight/Flight.php';
+
+Flight::route('POST /api/update-balance', function() {
+    $requestData = Flight::request()->data->getData();
+    
+    // Retrieve the user ID and balance from the request data
+    $user_id = $requestData['userId'];
+    $balance = $requestData['balance'];
+    
+    // Perform necessary validation and sanitization on the user ID and balance
+    
+    // Update the balance in the database using your existing connection code
+    
+    // Assuming you have a User service class with appropriate methods, update the balance
+    Flight::userService()->updateBalance($user_id, $balance);
+    
+    // Send a response back to the client
+    Flight::json(['success' => true]);
 });
 
 

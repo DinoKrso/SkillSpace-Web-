@@ -26,5 +26,10 @@ class UserService extends BaseService
         $user['password'] = md5($user['password']);
         return parent::update($id, $user);  
     }
+
+    function updateBalance($user_id, $amount)
+    {
+        return $this->dao->updateBalance($user_id,$amount);
+    }
 }
 ?>

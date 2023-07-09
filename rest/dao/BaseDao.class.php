@@ -30,10 +30,9 @@ class BaseDao{
         
     }
     public function get_by_id($id){
-        $stmt = $this->conn->prepare("SELECT * FROM ".$this->table_name." WHERE idUsers = :id");
-        $stmt->execute(['id' => $id]) ;
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
-        return reset($result) ;
+        $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE id=:id");
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
     }
 
     //DELETE FROM DATABASE
@@ -90,7 +89,7 @@ class BaseDao{
         $results = $this->query($query, $params);
         return reset($results);
     }
-    public function updateBalance($user_id, $amount) {
+   /* public function updateBalance($user_id, $amount) {
         // Prepare the SQL statement
         $stmt = $this->conn->prepare("UPDATE Users SET balance = balance + :amount WHERE idUsers = :user_id", ['user_id'=> $user_id,'amount'=> $amount]);
         $stmt->bindParam(":amount", $amount, PDO::PARAM_INT); 
@@ -101,6 +100,6 @@ class BaseDao{
         } else {
           return false; // Update failed
         }
-      }
+      }*/
 }
 ?>
