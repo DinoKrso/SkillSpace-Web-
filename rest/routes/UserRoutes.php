@@ -41,8 +41,6 @@ Flight::route('DELETE /api/users/@id', function ($id) {
     Flight::json(['message' => "User deleted successfully"]) ;
 });
 
-require 'flight/Flight.php';
-
 Flight::route('PUT /api/update-balance', function() {
     $requestData = Flight::request()->data->getData();
     

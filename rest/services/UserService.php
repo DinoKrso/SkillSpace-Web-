@@ -29,7 +29,7 @@ class UserService extends BaseService
 
     function updateBalance($user_id, $amount)
     {
-        return $this->dao->updateBalance($user_id,$amount);
+        return parent::updateBalance($user_id,$amount);
     }
 }
 ?>
