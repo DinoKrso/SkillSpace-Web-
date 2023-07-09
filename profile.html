@@ -5,6 +5,22 @@
   #logoutButton {
   color: white;
 }
+
+
+  .destroy-account-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .red-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+
 </style>
 
 
@@ -231,11 +247,15 @@
               </div>
             </div>
           </div>
+          <div class="destroy-account-button">
+            <a id="delete" href="index.html" class="red-button">Destroy Account</a>
+          </div>
           <!-- ***** Gaming Library End ***** -->
         </div>
       </div>
     </div>
   </div>
+  
   
   <footer>
     <div class="container">
@@ -287,6 +307,31 @@ balanceElement.textContent = 'Balance: ' + balance + '$' ;
 function logout() {
   localStorage.clear();
   window.location.href = 'index.html';
+}
+document.getElementById('delete').addEventListener('click', function(){
+  destroy();
+})
+
+function destroy(){
+  $.ajax({
+      url: "rest/students/" + payload.idUsers,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader(
+          "Authorization",
+          localStorage.getItem("user_token")
+        );
+      },
+      type: "DELETE",
+      success: function (response) {
+        console.log(response);
+        toastr.success(response.message);
+        localStorage.clear();
+        window.location.href="index.html";
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrow) {
+        console.log("Error: " + errorThrow);
+      },
+    });
 }
 
 document.getElementById("addButton").addEventListener("click", function() {
