@@ -15,12 +15,6 @@ var UserService = {
       $.ajax({
         url: "rest/login",
         type: "POST",
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader(
-            "Authorization",
-            localStorage.getItem("user_token")
-          );
-        },
         data: JSON.stringify(entity),
         contentType: "application/json",
         dataType: "json",

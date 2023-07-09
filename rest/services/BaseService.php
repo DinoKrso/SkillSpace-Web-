@@ -38,5 +38,10 @@ class BaseService
     {
         return $this->dao->delete($id);
     }
+
+    public function updateBalance($user_id, $amount)
+    {
+        return $this->dao->updateBalance($user_id, $amount);
+    }
 }
 ?>

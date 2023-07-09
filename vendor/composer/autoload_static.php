@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit210eaf752a174096fe554219e916d1be
+class ComposerStaticInitab50d02a611c3f423d31ef580cb33d13
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'fc73bab8d04e21bcdda37ca319c63800' => __DIR__ . '/..' . '/mikecao/flight/flight/autoload.php',
         '5b7d984aab5ae919d3362ad9588977eb' => __DIR__ . '/..' . '/mikecao/flight/flight/Flight.php',
+        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -35,6 +35,7 @@ class ComposerStaticInit210eaf752a174096fe554219e916d1be
         ),
         'D' => 
         array (
+            'Doctrine\\Deprecations\\' => 22,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
         ),
@@ -69,6 +70,10 @@ class ComposerStaticInit210eaf752a174096fe554219e916d1be
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
+        'Doctrine\\Deprecations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+        ),
         'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/src',
@@ -86,9 +91,9 @@ class ComposerStaticInit210eaf752a174096fe554219e916d1be
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit210eaf752a174096fe554219e916d1be::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit210eaf752a174096fe554219e916d1be::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit210eaf752a174096fe554219e916d1be::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitab50d02a611c3f423d31ef580cb33d13::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitab50d02a611c3f423d31ef580cb33d13::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitab50d02a611c3f423d31ef580cb33d13::$classMap;
 
         }, null, ClassLoader::class);
     }

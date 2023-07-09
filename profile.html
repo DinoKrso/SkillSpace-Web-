@@ -13,6 +13,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
@@ -104,8 +105,11 @@
                       <div class="main-border-button">
                         <a id="logoutButton" >Log Off</a>
                       </div>
-                      <div class="main-border-button">
+                      <div>
                         <a id="editButton" style="color:white">Add Funds</a>
+                        <input type="text" id="amountInput" placeholder="Enter amount">
+
+                          <button class="main-border-button" id="addButton">Add</button>
                       </div>
                     </div>
                   </div>
@@ -282,6 +286,40 @@ balanceElement.textContent = 'Balance: ' + balance + '$' ;
 function logout() {
   localStorage.clear();
   window.location.href = 'index.html';
+}
+
+var addButton = document.getElementById('addButton');
+
+// Add a click event listener to the add button
+addButton.addEventListener('click', function() {
+  // Retrieve the user ID and amount from the input fields
+  var userId = "your_user_id"; // Replace with the actual user ID
+  var amount = document.getElementById('amountInput').value;
+
+  // Call the updateBalance function with the user ID and amount
+  updateBalance(userId, amount);
+});
+
+function updateBalance(userId, amount) {
+  var data = {
+    userId: userId,
+    amount: amount
+  };
+
+  $.ajax({
+    url: "rest/api/updateBalance",
+    type: "POST",
+    data: JSON.stringify(data),
+    contentType: "application/json",
+    success: function(data) {
+      toastr.success("Balance updated successfully");
+      console.log(data);
+      // Perform any additional actions after successful balance update
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      toastr.error("Error updating balance");
+    }
+  });
 }
 
   </script>

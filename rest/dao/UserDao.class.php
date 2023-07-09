@@ -21,6 +21,8 @@ class UserDao extends BaseDao
       public function get_user_students($user_id){
         return $this->query('SELECT * FROM Users WHERE idUsers = :user_id', ['user_id' => $user_id]);
     }
-}
+ 
+    }
+
 
 ?>
