@@ -314,7 +314,7 @@ document.getElementById('delete').addEventListener('click', function(){
 
 function destroy(){
   $.ajax({
-      url: "rest/users/" + payload.idUsers,
+      url: "rest/api/users/" + payload.idUsers,
       beforeSend: function (xhr) {
         xhr.setRequestHeader(
           "Authorization",
