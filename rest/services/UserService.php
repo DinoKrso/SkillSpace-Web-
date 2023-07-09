@@ -31,5 +31,9 @@ class UserService extends BaseService
     {
         return parent::updateBalance($user_id,$amount);
     }
+    function delete($id)
+    {
+        return $this->dao->delete($id) ;
+    }
 }
 ?>
