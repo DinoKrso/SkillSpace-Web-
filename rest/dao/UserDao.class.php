@@ -21,8 +21,8 @@ class UserDao extends BaseDao
       public function get_user_students($user_id){
         return $this->query('SELECT * FROM Users WHERE idUsers = :user_id', ['user_id' => $user_id]);
     }
-    public function updateBalance($userId, $balance){
-        return $this->query('UPDATE Users SET balance = $balance WHERE idUsers = $userId') ;
+    public function updateBalance($user_id, $balance){
+        return $this->query('UPDATE Users SET balance = :balance WHERE idUsers = :user_id', ['userId' => $user_id, 'balance' => $balance]) ;
     }
  
     }
