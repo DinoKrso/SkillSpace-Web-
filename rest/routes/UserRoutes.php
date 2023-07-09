@@ -43,7 +43,7 @@ Flight::route('DELETE /api/users/@id', function ($id) {
 
 require 'flight/Flight.php';
 
-Flight::route('POST /api/update-balance', function() {
+Flight::route('PUT /api/update-balance', function() {
     $requestData = Flight::request()->data->getData();
     
     // Retrieve the user ID and balance from the request data

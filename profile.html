@@ -291,7 +291,7 @@ function logout() {
 
 document.getElementById("addButton").addEventListener("click", function() {
   var userId = payload.idUsers; // Replace 'USER_ID' with the actual user ID
-  var balance = document.getElementById("amountInput").value;
+  var balance = payload.balance + document.getElementById("amountInput").value;
 
   // Make an AJAX request to the PHP backend
   $.ajax({
