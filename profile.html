@@ -324,7 +324,6 @@ function destroy(){
       type: "DELETE",
       success: function (response) {
         console.log(response);
-        toastr.success(response.message);
         localStorage.clear();
         window.location.href="index.html";
       },
