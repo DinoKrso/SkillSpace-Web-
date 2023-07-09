@@ -93,7 +93,7 @@ class BaseDao{
     public function updateBalance($user_id, $amount) {
         // Prepare the SQL statement
         $stmt = $this->conn->prepare("UPDATE Users SET balance = balance + :amount WHERE idUsers = :user_id", ['user_id'=> $user_id,'amount'=> $amount]);
-        $stmt->bindParam("di", $amount, $user_id); // "di" represents the data types of the parameters: double (decimal) and integer
+        $stmt->bindParam(":amount", $amount, PDO::PARAM_INT); 
     
         // Execute the prepared statement
         if ($stmt->execute()) {

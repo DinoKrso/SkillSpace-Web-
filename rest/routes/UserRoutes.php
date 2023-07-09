@@ -41,10 +41,11 @@ Flight::route('DELETE /api/users/@id', function ($id) {
     Flight::json(['message' => "User deleted successfully"]) ;
 });
 
-Flight::route('POST /api/updateBalance', function ($user_id, $amount) {
+Flight::route('POST /api/updateBalance/@user_id/@amount', function ($user_id, $amount) {
   $data = Flight::request()->data->getData();
   Flight::json(Flight::userService()->updateBalance($user_id, $amount));
 });
+
 
 
 
