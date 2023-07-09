@@ -346,6 +346,8 @@ document.getElementById("addButton").addEventListener("click", function() {
   dataType: "json",
   success: function(result) {
     console.log(result);
+    payload.balance = balance;
+
     // Handle the success response here
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
