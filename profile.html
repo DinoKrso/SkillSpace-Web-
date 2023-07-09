@@ -293,17 +293,18 @@ var addButton = document.getElementById('addButton');
 // Add a click event listener to the add button
 addButton.addEventListener('click', function() {
   // Retrieve the user ID and amount from the input fields
-  var userId = "your_user_id"; // Replace with the actual user ID
+  var userId = payload.idUsers; // Replace with the actual user ID
   var amount = document.getElementById('amountInput').value;
+  console.log("Uzeo sam stvari") ;
 
   // Call the updateBalance function with the user ID and amount
   updateBalance(userId, amount);
 });
 
-function updateBalance(userId, amount) {
+function updateBalance(user_id, amount) {
   var data = {
-    userId: userId,
-    amount: amount
+    user_id: userId,
+    balance: amount
   };
 
   $.ajax({
