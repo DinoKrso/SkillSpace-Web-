@@ -346,7 +346,6 @@ document.getElementById("addButton").addEventListener("click", function() {
   dataType: "json",
   success: function(result) {
     console.log(result);
-    localStorage.setItem("user_token", result.token);
     // Handle the success response here
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
