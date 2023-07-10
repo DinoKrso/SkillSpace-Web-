@@ -34,7 +34,22 @@ Flight::route('PUT /api/users/@id', function ($id) {
     Flight::json(Flight::userService()->get_by_id($id));
     Flight::json(['message' => "User updated successfully"]) ;
 });
-
+ /**
+ * @OA\Delete(
+ *     path="users/{id}", security={{"ApiKeyAuth": {}}},
+ *     description="Delete user",
+ *     tags={"students"},
+ *     @OA\Parameter(in="path", name="id", example=1, description="User ID"),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Note deleted"
+ *     ),
+ *     @OA\Response(
+ *         response=500,
+ *         description="Error"
+ *     )
+ * )
+ */
 
 Flight::route('DELETE /api/users/@id', function ($id) {
     Flight::userService()->delete($id);
@@ -95,9 +110,16 @@ Flight::route('POST /login', function(){
     }
     if (isset($user['idUsers'])){
       if($user['password'] == md5($login['password'])){
+        $expiration_time =  time() + 3600 ;
         unset($user['password']);
-        $user['is_admin'] = false;
-        $jwt = JWT::encode($user, Config::JWT_SECRET(), 'HS256');
+        $userData = [
+            'idUsers' => $user['idUsers'],
+            'email' => $user['email'],
+            'exp' => $expiration_time
+        ];
+      //  $user['is_admin'] = false;
+        $jwt = JWT::encode($userData, Config::JWT_SECRET(), 'HS256');
+
         Flight::json(['token' => $jwt]);
       }else{
         Flight::json(["message" => "Wrong password"], 404);

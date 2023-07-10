@@ -25,7 +25,7 @@ require_once __DIR__ . '/routes/CourseRoutes.php';
 Flight::route('GET /', function () {
     echo "Hello";
 });
-/*
+
  // middleware method for login
 Flight::route('/*', function(){
     //perform JWT decode
@@ -39,6 +39,11 @@ Flight::route('/*', function(){
     }else{
       try {
         $decoded = (array)JWT::decode($headers['Authorization'], new Key(Config::JWT_SECRET(), 'HS256'));
+        $current_time = time() ; 
+        if(isset($decoded['exp']) && $decoded['exp'] < $current_time){
+          Flight::json(["message" => "Auth token has expired"],403) ;
+          return false;
+        }
         Flight::set('user', $decoded);
         return TRUE;
       } catch (\Exception $e) {
@@ -47,7 +52,7 @@ Flight::route('/*', function(){
       }
     }
   });
-*/
+
   /* REST API documentation endpoint */
     Flight::route('GET /docs.json', function(){
     $openapi = \OpenApi\scan('routes');
